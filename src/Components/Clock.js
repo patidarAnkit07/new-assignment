@@ -45,8 +45,6 @@ const Clock = ({ running, toggleClock, countries, selectedCountry, handleCountry
 
   useEffect(() => {
     const intervalId = setInterval(updateClock, 1000);
-
-    // Initial fetch to set the clock to the current time of the selected country
     updateClock();
 
     return () => clearInterval(intervalId);
@@ -54,26 +52,21 @@ const Clock = ({ running, toggleClock, countries, selectedCountry, handleCountry
 
   const togglePause = async () => {
     if (running) {
-      // Pause the clock only if not already paused
       if (pausedTimeRef.current === null) {
         pausedTimeRef.current = Date.now();
       }
-      toggleClock(); // Pause the clock
+      toggleClock();
     } else {
-      // Resume the clock
       if (pausedTimeRef.current !== null) {
         pausedTimeRef.current = null;
       }
-      toggleClock(); // Start the clock
+      toggleClock();
     }
   };
   
 
   useEffect(() => {
     console.log('Selected Country Updated:', selectedCountry);
-    // You can add additional logging or debugging statements here
-
-    // Update the clock immediately when the country is changed
     updateClock();
   }, [selectedCountry]);
 

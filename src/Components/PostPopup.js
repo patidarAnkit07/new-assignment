@@ -1,4 +1,3 @@
-// PostPopup.js
 import React from 'react';
 
 const PostPopup = ({ post, onClose }) => {

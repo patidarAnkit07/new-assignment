@@ -1,4 +1,3 @@
-// UserCard.js
 import React from 'react';
 
 const UserCard = ({ user, onClick }) => {

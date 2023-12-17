@@ -1,4 +1,3 @@
-// UserDirectory.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -12,7 +11,6 @@ const UserDirectory = () => {
         const response = await axios.get('https://jsonplaceholder.typicode.com/users');
         const usersData = response.data;
 
-        // Fetch and update posts for each user
         const updatedUsers = await Promise.all(
           usersData.map(async (user) => {
             const postsResponse = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`);
